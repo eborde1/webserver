@@ -15,6 +15,7 @@ suites:
        - recipe[java::oracle]
        - recipe[apt]
        - recipe[mysqld]
+       - recipe[php]
        - recipe[webserver::default]
     attributes:
        webserver:
