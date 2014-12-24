@@ -11,12 +11,19 @@ platforms:
 
 suites:
   - name: webserver
-    run_list:
-       - recipe[java::oracle]
+    run_list:       
        - recipe[apt]
+       - recipe[java::oracle]
+       - recipe[php]
        - recipe[mysqld]
+       - recipe[webserver::mediawiki]
+       - recipe[webserver::config_mysql]
        - recipe[webserver::default]
     attributes:
        webserver:
          name: www
          version: "0.0.1"
+         network:
+           - ["private_network", { ip: "192.168.0.236" }]
+
+           
