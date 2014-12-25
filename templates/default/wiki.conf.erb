@@ -1,0 +1,22 @@
+<VirtualHost *:80>
+
+	ServerName wiki
+
+	ServerAdmin ebordeleau@myfastmail.com
+	DocumentRoot /var/www/html
+	LogLevel debug
+
+	ErrorLog ${APACHE_LOG_DIR}/wiki_error.log
+	CustomLog ${APACHE_LOG_DIR}/wiki_access.log combined
+
+    DirectoryIndex index.html index.php 
+
+   	<directory /var/www/wiki>
+     		Options +Indexes
+   	</directory>
+
+	UseCanonicalName Off
+	ProxyRequests Off
+	RewriteEngine On
+	
+</VirtualHost>

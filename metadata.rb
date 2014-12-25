@@ -13,3 +13,8 @@ depends 'zip', '~> 1.1.0'
 depends 'java', '~> 1.29.0'
 depends 'php', '~> 1.5.0'
 depends 'mysqld', '~> 1.0.0'
+
+
+recipe "webserver::mediawiki", "Download and Unzip of Mediawiki"
+recipe "webserver::config_mysql", "Configuration of MySQL for Mediawiki"
+
