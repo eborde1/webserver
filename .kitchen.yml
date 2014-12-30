@@ -21,6 +21,7 @@ suites:
         cpus: 2
     run_list:       
        - recipe[apt]
+       - recipe[apache2::default]
        - recipe[java::oracle]
        - recipe[php]
        - recipe[mysqld]

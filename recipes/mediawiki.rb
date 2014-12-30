@@ -20,6 +20,11 @@ execute "Decompress and untar file" do
 	command "tar xvfz /tmp/#{node['mediawiki']['file']}-#{node['mediawiki']['full_version']}.tar.gz; mv #{node['mediawiki']['file']}-#{node['mediawiki']['full_version']} #{node['mediawiki']['dir']}"
 end
 
+execute "Change ownership directory of wikipedia" do
+  cwd  "#{node['mediawiki']['installdir']}"
+  command "chown -R #{node['apache2']['user']}:#{node['apache2']['group']} *"
+end
+
 # Create apache config
 template "#{node['apache']['dir']}/sites-available/#{node['mediawiki']['vhostconfig']}" do
   source 'wiki.conf.erb'

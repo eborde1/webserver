@@ -3,7 +3,7 @@
 	ServerName wiki
 
 	ServerAdmin ebordeleau@myfastmail.com
-	DocumentRoot /var/www/html
+	DocumentRoot /var/www
 	LogLevel debug
 
 	ErrorLog ${APACHE_LOG_DIR}/wiki_error.log
@@ -11,7 +11,7 @@
 
     DirectoryIndex index.html index.php 
 
-   	<directory /var/www/wiki>
+   	<directory /var/www/wikisite>
      		Options +Indexes
    	</directory>
 
