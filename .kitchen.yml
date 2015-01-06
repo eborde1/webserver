@@ -4,7 +4,7 @@ driver:
 
 provisioner:
   name: chef_zero
-  require_chef_omnibus: 11.16.4
+ # require_chef_omnibus: 11.16.4
 
 platforms:
   - name: ubuntu-14.04
@@ -12,10 +12,11 @@ platforms:
 suites:
   - name: webserver
     driver:
-      vm_hostname: www.aseb-tech.com
+      vm_hostname: www
       network:
-        #- ["public_network", {bridge: "en0: Wi-Fi (AirPort)"}]
-        - ["private_network", {ip: "192.168.1.193"}]
+        - ["forwarded_port", {guest: 80, host: 8080}]
+        #- ["public_network", {bridged: "en3"}]
+        #- ["private_network", {ip: "192.168.1.193"}]
       customize:
         memory: 2048
         cpus: 2
@@ -26,6 +27,7 @@ suites:
        - recipe[php]
        - recipe[mysqld]
        - recipe[php]
+       - recipe[imagemagick]
        - recipe[webserver::mediawiki]
        - recipe[webserver::config_mysql]
        - recipe[webserver::default]

@@ -18,6 +18,11 @@ default['mysqld']['cmd'] = 'mysql -u root -p'
 default['mysqld']['create_db_cmd'] = " -e 'create database wikidb;'"
 default['mysqld']['grant_cmd'] = " -e \"grant index, create, select, insert, update, delete, alter, lock tables on wikidb.* to "
 
+# PHP parameters
+default['php']['parameters']['file'] ="/etc/php5/cgi/php.ini"
+default['php']['parameters']['max_upload_size'] ="upload_max_filesize"
+default['php']['parameters']['mem_limit'] ="memory_limit"
+
 
 # MediaWiki
 default['mediawiki']['url_base'] = 'http://releases.wikimedia.org/mediawiki/'

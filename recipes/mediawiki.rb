@@ -4,7 +4,18 @@
 # Author:: Eric Bordeleau (ebordeleau@myfastmail.com) 
 #
 # Copyright (c) 2014 All Rights Reserved.	
+# References: https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Ubuntu
 
+# Modifying PHP parameters for Mediawiki
+ruby_block "Modify PHP parameters" do
+  block do  
+    fe = Chef::Util::FileEdit.new("#{node['php']['parameters']['file']}")
+    fe.search_file_replace_line("#{node['php']['parameters']['max_upload_size']} = 2M","#{node['php']['parameters']['max_upload_size']} = 20M")
+    fe.write_file   
+    fe.search_file_replace_line("#{node['php']['parameters']['mem_limit']} = 8M","#{node['php']['parameters']['mem_limit']} = 128M")
+    fe.write_file
+  end
+end
 
 # Get the remote_file from MediaWiki
 remote_file "/tmp/#{node['mediawiki']['file']}-#{node['mediawiki']['full_version']}.tar.gz" do

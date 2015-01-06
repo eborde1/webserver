@@ -10,9 +10,13 @@
 	CustomLog ${APACHE_LOG_DIR}/wiki_access.log combined
 
     DirectoryIndex index.html index.php 
+    
+    Alias /wiki /var/www/wikisite
 
    	<directory /var/www/wikisite>
-     		Options +Indexes
+     		Options +Indexes +FollowSymLinks +MultiViews
+     		Order allow,deny
+            Allow from all
    	</directory>
 
 	UseCanonicalName Off
