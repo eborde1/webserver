@@ -32,7 +32,7 @@ end
 
 execute "Change ownership directory of wikipedia" do
   cwd  "#{node['mediawiki']['installdir']}"
-  command "chown -R #{node['apache2']['user']}:#{node['apache2']['group']} *"
+  command "chown -R #{node['apache']['user']}:#{node['apache']['group']} *"
 end
 
 # Create apache config
