@@ -45,5 +45,11 @@ apache_site 'wiki' do
   notifies :restart, 'service[apache2]'
 end
 
-
-
+# Create LocalSettings.php config for Wiki
+template "#{node['mediawiki']['installdir']}/#{node['mediawiki']['dir']}/LocalSettings.php" do
+  source 'LocalSettings.php.erb'
+  owner "#{node['apache']['user']}"
+  group "#{node['apache']['group']}"
+  mode "0600"
+  notifies :restart, 'service[apache2]'
+end 

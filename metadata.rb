@@ -12,6 +12,7 @@ depends 'ark'
 depends 'zip'
 depends 'java'
 depends 'php'
+depends 'application_php'
 depends 'imagemagick'
 depends 'mysqld'
 

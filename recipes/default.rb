@@ -25,7 +25,7 @@ java_ark "jdk" do
     action :install
 end
 
-# Install 
+# Install package php5-mysql
 apt_package "php5-mysql" do
   action :install 
 end
