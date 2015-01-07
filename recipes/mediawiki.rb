@@ -10,8 +10,7 @@
 ruby_block "Modify PHP parameters" do
   block do  
     fe = Chef::Util::FileEdit.new("#{node['php']['parameters']['file']}")
-    fe.search_file_replace_line("#{node['php']['parameters']['max_upload_size']} = 2M","#{node['php']['parameters']['max_upload_size']} = 20M")
-    fe.write_file   
+    fe.search_file_replace_line("#{node['php']['parameters']['max_upload_size']} = 2M","#{node['php']['parameters']['max_upload_size']} = 20M")  
     fe.search_file_replace_line("#{node['php']['parameters']['mem_limit']} = 8M","#{node['php']['parameters']['mem_limit']} = 128M")
     fe.write_file
   end
@@ -19,8 +18,8 @@ end
 
 # Get the remote_file from MediaWiki
 remote_file "/tmp/#{node['mediawiki']['file']}-#{node['mediawiki']['full_version']}.tar.gz" do
-  owner "#{node['apache2']['user']}"
-  group "#{node['apache2']['group']}"
+  owner "#{node['apache']['user']}"
+  group "#{node['apache']['group']}"
   mode "0755"
   source "#{node['mediawiki']['url_base']}#{node['mediawiki']['minor_version']}/#{node['mediawiki']['file']}-#{node['mediawiki']['full_version']}.tar.gz"
 end

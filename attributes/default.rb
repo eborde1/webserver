@@ -7,10 +7,11 @@ default['java']['ark_retry_delay'] 	 = 5
 default['java']['oracle']['accept_oracle_download_terms'] = true
 
 # Apache 
-default['apache']['htmldocroot'] = "/opt/www"
+default['apache']['admin_mail'] = "ebordeleau@myfastmail.com"
+default['apache']['htmldocroot'] = "/var/www/wikisite"
 default['apache']['dir'] = "/etc/apache2"
-default['apache2']['user'] = 'www-data'
-default['apache2']['group'] = 'www-data'
+default['apache']['user'] = 'www-data'
+default['apache']['group'] = 'www-data'
 
 # MysSQL server
 default['mysqld']['root_password'] = 'mysql'
