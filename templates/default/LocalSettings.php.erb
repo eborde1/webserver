@@ -47,8 +47,8 @@ $wgEnableUserEmail = true; # UPO
 $wgEmergencyContact = "<%= node['apache']['admin_mail'] %>";
 $wgPasswordSender = "<%= node['apache']['admin_mail'] %>";
 
-$wgEnotifUserTalk = false; # UPO
-$wgEnotifWatchlist = false; # UPO
+$wgEnotifUserTalk = true; # UPO
+$wgEnotifWatchlist = true; # UPO
 $wgEmailAuthentication = true;
 
 ## Database settings
@@ -97,13 +97,12 @@ $wgShellLocale = "en_US.utf8";
 #$wgCacheDirectory = "$IP/cache";
 
 # Site language code, should be one of the list in ./languages/Names.php
-$wgLanguageCode = "en";
+$wgLanguageCode = "en-ca";
 
-$wgSecretKey = "2be1813188a3ae1787410d7b49296e9c720929702189059933f8a8f897f6c135";
-
+$wgSecretKey = "fb5b085b57eb3cd823c4d24cc91eec81bd66450b1e0fd0c81a821c990bf42fa5";
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "ff3ae0eedab9be36";
+$wgUpgradeKey = "7798723aaf3e8e5f";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation

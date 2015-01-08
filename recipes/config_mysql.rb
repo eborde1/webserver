@@ -29,10 +29,15 @@ cookbook_file "#{node['mysqld']['dumpfile']}" do
 	mode "0755"
 	:create_if_missing
 end
+# create mysql wiki database; 
+execute "create wikidb" do
+	command "#{node['mysqld']['cmd']}#{node['mysqld']['root_password']}#{node['mysqld']['create_db_cmd']};"
+	action :run
+end
 
 # Load mysql configured dumpfile 
 execute "load_config_from_dump" do
-	command "#{node['mysqld']['cmd']}#{node['mysqld']['root_password']} < /tmp/#{node['mysqld']['dumpfile']}"
+	command "#{node['mysqld']['cmd']}#{node['mysqld']['root_password']} #{node['mysqld']['wiki_db']}< /tmp/#{node['mysqld']['dumpfile']}"
 	action :run
 end
 
