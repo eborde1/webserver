@@ -25,7 +25,6 @@ suites:
        - recipe[apache2::default]
        - recipe[java::oracle]
        - recipe[php]
-       - recipe[application_php]
        - recipe[mysqld]
        - recipe[imagemagick]
        - recipe[webserver::mediawiki]

@@ -22,6 +22,7 @@ default['mysqld']['cmd'] = 'mysql -u root -p'
 default['mysqld']['wiki_db'] = 'wikidb'
 default['mysqld']['create_db_cmd'] = " -e 'create database wikidb;'"
 default['mysqld']['grant_cmd'] = " -e \"grant index, create, select, insert, update, delete, alter, lock tables on wikidb.* to "
+default['mysqld']['dumpfile'] = "wikidb_configured.sql"
 
 # PHP parameters
 default['php']['parameters']['file'] ="/etc/php5/cgi/php.ini"
