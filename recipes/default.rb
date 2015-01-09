@@ -25,9 +25,14 @@ java_ark "jdk" do
     action :install
 end
 
-# Install package php5-mysql
-apt_package "php5-mysql" do
-  action :install 
+# Modifying PHP parameters 
+ruby_block "Modify PHP parameters" do
+  block do  
+    fe = Chef::Util::FileEdit.new("#{node['php']['parameters']['file']}")
+    fe.search_file_replace_line("#{node['php']['parameters']['max_upload_size']} = 2M","#{node['php']['parameters']['max_upload_size']} = 20M")  
+    fe.search_file_replace_line("#{node['php']['parameters']['mem_limit']} = 8M","#{node['php']['parameters']['mem_limit']} = 128M")
+    fe.write_file
+  end
 end
 
 
